@@ -1,0 +1,30 @@
+Cross-Framework Architectural Model (CFAM / XF) — Normative specification
+Edition XF-CFAM-001:2026
+
+Copyright (c) 2026 Israel Sanjurjo Cuenca (ORCID 0009-0006-9584-7977).
+
+This work — including the text, figures, and the PDF editions in /spec — is
+licensed under the Creative Commons Attribution-NoDerivatives 4.0 International
+License (CC BY-ND 4.0).
+
+You are free to:
+  • Share — copy and redistribute the material in any medium or format, for any
+    purpose, even commercially.
+
+Under the following terms:
+  • Attribution — You must give appropriate credit, provide a link to the
+    license, and indicate if changes were made. Suggested credit:
+    "Israel Sanjurjo Cuenca, Cross-Framework Architectural Model (CFAM/XF),
+     XF-CFAM-001:2026, https://xfarch.org".
+  • NoDerivatives — If you remix, transform, or build upon the material, you may
+    not distribute the modified material.
+  • No additional restrictions — You may not apply legal terms or technological
+    measures that legally restrict others from doing anything the license permits.
+
+Canonical source: https://xfarch.org
+License deed:     https://creativecommons.org/licenses/by-nd/4.0/
+Legal code:       https://creativecommons.org/licenses/by-nd/4.0/legalcode
+
+Note: this license governs the *expression* (this document and its figures). It
+does not restrict use of the underlying architectural model and ideas, which may
+be implemented and described freely, with attribution to the canonical source.

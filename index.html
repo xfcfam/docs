@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CFAM / XF — Cross-Framework Architectural Model</title>
+<meta name="description" content="CFAM / XF: a technology-agnostic, statically verifiable architectural reference model for the interior of a software artifact. Normative specification XF-CFAM-001:2026.">
+<meta property="og:title" content="Cross-Framework Architectural Model (CFAM / XF)">
+<meta property="og:description" content="A technology-agnostic, verifiable architectural reference model. Normative specification XF-CFAM-001:2026.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xfarch.org">
+<style>
+  :root{
+    --ink:#13182b; --muted:#5b6478; --line:#e4e7ef; --bg:#ffffff;
+    --accent:#1f3a93; --accent-2:#2b4fd0; --soft:#f5f7fb; --code:#f0f2f8;
+    --max:880px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{--ink:#e8ebf5;--muted:#9aa3ba;--line:#2a3046;--bg:#0e1120;
+          --accent:#8aa6ff;--accent-2:#9db4ff;--soft:#161a2c;--code:#161a2c;}
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;font-size:17px}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-weight:700;letter-spacing:.02em;color:var(--ink)}
+  .brand span{color:var(--accent)}
+  .lang{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .lang button{border:0;background:transparent;color:var(--muted);padding:6px 12px;cursor:pointer;font-size:14px;font-weight:600}
+  .lang button.on{background:var(--accent);color:#fff}
+  .hero{padding:54px 0 34px;border-bottom:1px solid var(--line)}
+  .badge{display:inline-block;font-size:13px;font-weight:600;color:var(--accent);
+    background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-bottom:18px}
+  h1{font-size:2.15rem;line-height:1.15;margin:.1em 0 .35em}
+  .tag{font-size:1.18rem;color:var(--muted);margin:0 0 26px;max-width:40em}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;padding:11px 18px;font-weight:600;font-size:15px;border:1px solid var(--accent)}
+  .btn.primary{background:var(--accent);color:#fff}
+  .btn.ghost{background:transparent;color:var(--accent-2)}
+  .alt{font-size:14px;color:var(--muted);margin-top:12px}
+  section{padding:38px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:1.4rem;margin:0 0 .6em}
+  h3{font-size:1.05rem;margin:1.4em 0 .4em}
+  p{margin:.2em 0 1em}
+  ul.clean{padding-left:1.1em;margin:.2em 0 1em}
+  ul.clean li{margin:.3em 0}
+  table.lxt{width:100%;border-collapse:collapse;font-size:14.5px;margin:.4em 0 .2em}
+  table.lxt th,table.lxt td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.lxt thead th{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);font-size:13px;text-transform:uppercase;letter-spacing:.03em}
+  table.lxt tbody tr:last-child td{border-bottom:2px solid var(--ink)}
+  table.lxt td code,code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code);padding:1px 5px;border-radius:5px;font-size:.92em}
+  .note{font-size:13.5px;color:var(--muted);margin-top:8px}
+  pre{background:var(--code);border:1px solid var(--line);border-radius:9px;padding:14px 16px;overflow:auto;font-size:13.5px;line-height:1.5}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px 26px}
+  @media(max-width:620px){.grid2{grid-template-columns:1fr}h1{font-size:1.8rem}}
+  .meta{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:15px}
+  .meta dt{color:var(--muted)}
+  footer{padding:28px 0 48px;color:var(--muted);font-size:14px}
+  body.lang-en .es{display:none}
+  body.lang-es .en{display:none}
+</style>
+</head>
+<body class="lang-en">
+<header><div class="wrap bar">
+  <div class="brand">CFAM<span>/</span>XF</div>
+  <div class="lang" role="group" aria-label="Language">
+    <button id="b-en" class="on" onclick="setLang('en')">EN</button>
+    <button id="b-es" onclick="setLang('es')">ES</button>
+  </div>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <div class="badge">XF-CFAM-001:2026 &middot; June 9, 2026</div>
+  <div class="en">
+    <h1>Cross-Framework Architectural Model</h1>
+    <p class="tag">A technology-agnostic, statically verifiable reference model for the <em>interior</em> of a software artifact &mdash; one structure beneath many frameworks.</p>
+    <div class="cta">
+      <a class="btn primary" href="spec/XF-CFAM-001-2026_en.pdf">Read the specification (PDF)</a>
+      <a class="btn ghost" href="spec/XF-CFAM-001-2026_en.pdf" download>Download PDF</a>
+    </div>
+    <div class="alt">228 pages &middot; English edition. Also available in <a href="#" onclick="setLang('es');return false;">Spanish</a>.</div>
+  </div>
+  <div class="es">
+    <h1>Modelo de Arquitectura Cross-Framework</h1>
+    <p class="tag">Un modelo de referencia independiente de la tecnología y verificable estáticamente para el <em>interior</em> de un artefacto de software &mdash; una estructura bajo muchos frameworks.</p>
+    <div class="cta">
+      <a class="btn primary" href="spec/XF-CFAM-001-2026_es.pdf">Leer la especificación (PDF)</a>
+      <a class="btn ghost" href="spec/XF-CFAM-001-2026_es.pdf" download>Descargar PDF</a>
+    </div>
+    <div class="alt">235 páginas &middot; edición en español. También disponible en <a href="#" onclick="setLang('en');return false;">inglés</a>.</div>
+  </div>
+</div></div>
+
+<section><div class="wrap">
+  <div class="en">
+    <h2>What it is</h2>
+    <p>The <strong>Cross-Framework Architectural Model</strong> (CFAM, also XF) starts from a simple observation: mainstream frameworks independently converge on the same component roles because the processes they automate share one structure &mdash; a convergence hidden behind incompatible vocabularies. From the theory of formal processes (Input&ndash;Process&ndash;Output, communicating sequential processes, the Actor model, BPMN), CFAM derives a universal <strong>three-layer structure</strong> and crosses it with <strong>five functional types</strong> into a closed <strong>L&times;T taxonomy</strong> with a canonical, technology-agnostic nomenclature.</p>
+    <p>Following the precedent of OSI &mdash; which standardized communication <em>between</em> systems &mdash; CFAM standardizes the vocabulary and construction of the <em>interior</em> of each artifact. Conformance is statically verifiable across five levels, and prior reference architectures (Clean, Hexagonal, Onion, Domain-Driven Design) project onto L&times;T as <strong>partial instances</strong>.</p>
+  </div>
+  <div class="es">
+    <h2>Qué es</h2>
+    <p>El <strong>Modelo de Arquitectura Cross-Framework</strong> (CFAM, también XF) parte de una observación simple: los frameworks dominantes convergen de forma independiente en los mismos roles de componente porque los procesos que automatizan comparten una misma estructura, oculta tras vocabularios incompatibles. Desde la teoría de los procesos formales (Entrada&ndash;Proceso&ndash;Salida, procesos secuenciales comunicantes, el modelo de Actores, BPMN), CFAM deriva una <strong>estructura universal de tres capas</strong> y la cruza con <strong>cinco tipos funcionales</strong> en una <strong>taxonomía cerrada L&times;T</strong> con una nomenclatura canónica e independiente de la tecnología.</p>
+    <p>Siguiendo el precedente de OSI &mdash; que estandarizó la comunicación <em>entre</em> sistemas &mdash;, CFAM estandariza el vocabulario y la construcción del <em>interior</em> de cada artefacto. La conformidad es verificable estáticamente en cinco niveles, y las arquitecturas de referencia previas (Clean, Hexagonal, Onion, Domain-Driven Design) se proyectan sobre L&times;T como <strong>instancias parciales</strong>.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="en"><h2>The L&times;T taxonomy</h2>
+  <p>Every component of an artifact occupies exactly one cell: an <strong>abstraction layer</strong> (rows) crossed with a <strong>functional type</strong> (columns). The asterisk (<code>*</code>) stands for the modeled concept.</p></div>
+  <div class="es"><h2>La taxonomía L&times;T</h2>
+  <p>Todo componente de un artefacto ocupa exactamente una celda: una <strong>capa de abstracción</strong> (filas) cruzada con un <strong>tipo funcional</strong> (columnas). El asterisco (<code>*</code>) representa el concepto modelado.</p></div>
+  <table class="lxt">
+    <thead><tr>
+      <th><span class="en">Layer</span><span class="es">Capa</span></th>
+      <th><span class="en">Logical</span><span class="es">Lógico</span></th>
+      <th><span class="en">Generalization</span><span class="es">Generalización</span></th>
+      <th><span class="en">Injection</span><span class="es">Inyección</span></th>
+      <th><span class="en">Utility</span><span class="es">Utilidad</span></th>
+      <th><span class="en">Transfer</span><span class="es">Transferencia</span></th>
+    </tr></thead>
+    <tbody>
+      <tr><td><strong><span class="en">Access</span><span class="es">Acceso</span></strong></td>
+        <td><code>*Repository</code></td><td><code>*Repository</code></td><td><code>R</code></td><td><code>*Utils</code></td><td><span class="en">concept</span><span class="es">concepto</span> / <code>*Exception</code></td></tr>
+      <tr><td><strong><span class="en">Business</span><span class="es">Negocio</span></strong></td>
+        <td><code>*Business</code></td><td><code>*Business</code></td><td><code>B</code></td><td><code>*Utils</code></td><td><span class="en">concept</span><span class="es">concepto</span> / <code>*Exception</code></td></tr>
+      <tr><td><strong><span class="en">Interaction</span><span class="es">Interacción</span></strong></td>
+        <td><code>*Service</code>, <code>*View</code></td><td><code>*Service</code>, <code>*View</code></td><td><code>A</code></td><td><code>*Utils</code></td><td><span class="en">concept</span><span class="es">concepto</span> / <code>*Exception</code></td></tr>
+    </tbody>
+  </table>
+  <p class="note"><span class="en">Dependencies are strictly descending (Interaction &rarr; Business &rarr; Access). The three injection components <code>R</code>, <code>B</code>, <code>A</code> give a single access pattern: <code>&lt;injection&gt;.&lt;component&gt;.&lt;operation&gt;()</code>, e.g. <code>B.session.refresh()</code>.</span>
+  <span class="es">Las dependencias son estrictamente descendentes (Interacción &rarr; Negocio &rarr; Acceso). Los tres componentes de inyección <code>R</code>, <code>B</code>, <code>A</code> dan un único patrón de acceso: <code>&lt;inyección&gt;.&lt;componente&gt;.&lt;operación&gt;()</code>, p. ej. <code>B.session.refresh()</code>.</span></p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="en">
+    <h2>What&rsquo;s in the specification</h2>
+    <div class="grid2"><ul class="clean">
+      <li>Scope, conformance, and terms</li>
+      <li>The component taxonomy &mdash; the L&times;T matrix</li>
+      <li>Layer responsibilities &amp; the descending-dependency rule</li>
+      <li>Injection components (<code>R</code>, <code>B</code>, <code>A</code>) and the canonical access pattern</li>
+    </ul><ul class="clean">
+      <li>Canonical folder structure</li>
+      <li>Artifact lifecycle (defined &rarr; initialized &rarr; terminated)</li>
+      <li>Conformance: rule catalog, five levels, structural vs. semantic verifiability</li>
+      <li>Formal apparatus: definitions, axioms, properties &amp; theorems (annexes); glossary &amp; index</li>
+    </ul></div>
+  </div>
+  <div class="es">
+    <h2>Qué contiene la especificación</h2>
+    <div class="grid2"><ul class="clean">
+      <li>Ámbito, conformidad y términos</li>
+      <li>La taxonomía de componentes &mdash; la matriz L&times;T</li>
+      <li>Responsabilidades de capa y la regla de dependencia descendente</li>
+      <li>Componentes de inyección (<code>R</code>, <code>B</code>, <code>A</code>) y el patrón de acceso canónico</li>
+    </ul><ul class="clean">
+      <li>Estructura de carpetas canónica</li>
+      <li>Ciclo de vida del artefacto (definido &rarr; inicializado &rarr; terminado)</li>
+      <li>Conformidad: catálogo de reglas, cinco niveles, verificabilidad estructural vs. semántica</li>
+      <li>Aparato formal: definiciones, axiomas, propiedades y teoremas (anexos); glosario e índice</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="en"><h2>Cite this work</h2>
+    <p>To cite the normative specification:</p>
+    <p>Sanjurjo Cuenca, I. (2026). <em>Cross-Framework Architectural Model (CFAM&nbsp;/&nbsp;XF)</em>, XF-CFAM-001:2026. <a href="https://xfarch.org">https://xfarch.org</a></p>
+    <p class="note">A companion overview article is under review at <em>IEEE Software</em>.</p>
+  </div>
+  <div class="es"><h2>Cómo citar</h2>
+    <p>Para citar la especificación normativa:</p>
+    <p>Sanjurjo Cuenca, I. (2026). <em>Modelo de Arquitectura Cross-Framework (CFAM&nbsp;/&nbsp;XF)</em>, XF-CFAM-001:2026. <a href="https://xfarch.org">https://xfarch.org</a></p>
+    <p class="note">Un artículo panorámico complementario está en revisión en <em>IEEE Software</em>.</p>
+  </div>
+<pre>@techreport{cfam2026,
+  author = {Sanjurjo Cuenca, Israel},
+  title  = {Cross-Framework Architectural Model (CFAM/XF)},
+  number = {XF-CFAM-001:2026},
+  year   = {2026},
+  url    = {https://xfarch.org}
+}</pre>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="meta">
+    <dt><span class="en">Author</span><span class="es">Autor</span></dt>
+    <dd>Israel Sanjurjo Cuenca &middot; <a href="https://orcid.org/0009-0006-9584-7977">ORCID 0009-0006-9584-7977</a></dd>
+    <dt><span class="en">Edition</span><span class="es">Edición</span></dt>
+    <dd>XF-CFAM-001:2026 (June 9, 2026)</dd>
+    <dt><span class="en">Rights</span><span class="es">Derechos</span></dt>
+    <dd>&copy; 2026 Israel Sanjurjo Cuenca.
+      <span class="en">Licensed under <a href="https://creativecommons.org/licenses/by-nd/4.0/">CC&nbsp;BY-ND&nbsp;4.0</a>: copy and redistribute the document in any medium, <strong>unmodified</strong> and <strong>with attribution</strong>. <code>xfarch.org</code> is the canonical source &mdash; please cite the versioned edition above.</span>
+      <span class="es">Bajo licencia <a href="https://creativecommons.org/licenses/by-nd/4.0/deed.es">CC&nbsp;BY-ND&nbsp;4.0</a>: copia y redistribuye el documento en cualquier medio, <strong>sin modificaciones</strong> y <strong>con atribución</strong>. <code>xfarch.org</code> es la fuente canónica &mdash; cita la edición versionada de arriba.</span></dd>
+  </div>
+</div></footer>
+
+<script>
+  function setLang(l){
+    document.body.className='lang-'+l;
+    document.documentElement.lang=l;
+    var en=document.getElementById('b-en'), es=document.getElementById('b-es');
+    if(en&&es){en.classList.toggle('on',l==='en');es.classList.toggle('on',l==='es');}
+    try{localStorage.setItem('xf_lang',l);}catch(e){}
+  }
+  (function(){var l='en';try{l=localStorage.getItem('xf_lang')||'en';}catch(e){}setLang(l);})();
+</script>
+</body>
+</html>

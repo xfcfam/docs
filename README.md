@@ -15,10 +15,10 @@ cited, taught, audited, and adopted freely.
 
 - **Canonical site:** https://xfcfam.org
 - **Edition:** XF-CFAM-001:2026
-- **Author:** Israel Sanjurjo Cuenca · ORCID 0009-0006-9584-7977
+- **Author:** Israel Sanjurjo · ORCID 0009-0006-9584-7977
 - **License:** Creative Commons Attribution-NoDerivatives 4.0 (CC BY-ND 4.0)
 
-**How to cite:** Sanjurjo Cuenca, I. (2026). *Cross-Framework Architectural Model
+**How to cite:** Sanjurjo, I. (2026). *Cross-Framework Architectural Model
 (CFAM / XF)*, XF-CFAM-001:2026. https://xfcfam.org
 
 *Documentación disponible también en español en https://xfcfam.org.*

@@ -36,6 +36,9 @@
   .bar{display:flex;align-items:center;justify-content:space-between;height:60px}
   .brand{font-weight:700;letter-spacing:.02em;color:var(--ink)}
   .brand span{color:var(--accent)}
+  .bar-right{display:flex;align-items:center;gap:18px}
+  .nav a{color:var(--ink);font-weight:600;font-size:15px}
+  .nav a:hover{color:var(--accent-2);text-decoration:none}
   .lang{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
   .lang button{border:0;background:transparent;color:var(--muted);padding:6px 12px;cursor:pointer;font-size:14px;font-weight:600}
   .lang button.on{background:var(--accent);color:#fff}
@@ -74,9 +77,14 @@
 <body class="lang-en">
 <header><div class="wrap bar">
   <div class="brand">CFAM<span>/</span>XF</div>
-  <div class="lang" role="group" aria-label="Language">
-    <button id="b-en" class="on" onclick="setLang('en')">EN</button>
-    <button id="b-es" onclick="setLang('es')">ES</button>
+  <div class="bar-right">
+    <nav class="nav">
+      <a href="libraries.html"><span class="en">Libraries</span><span class="es">Librerías</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="b-en" class="on" onclick="setLang('en')">EN</button>
+      <button id="b-es" onclick="setLang('es')">ES</button>
+    </div>
   </div>
 </div></header>
 
@@ -170,6 +178,25 @@
       <li>Conformidad: catálogo de reglas, cinco niveles, verificabilidad estructural vs. semántica</li>
       <li>Aparato formal: definiciones, axiomas, propiedades y teoremas (anexos); glosario e índice</li>
     </ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="en">
+    <h2>Libraries</h2>
+    <p>Official XF libraries bring the L&times;T taxonomy and the canonical nomenclature into real code, with one technology-specific monorepo per ecosystem &mdash; <code>lib-npm</code>, <code>lib-nuget</code>, <code>lib-pip</code> and <code>lib-maven</code> &mdash; published under <a href="https://github.com/xfarch">@xfarch</a> on GitHub.</p>
+    <div class="cta">
+      <a class="btn primary" href="libraries.html">Browse the libraries</a>
+      <a class="btn ghost" href="https://github.com/xfarch">View on GitHub</a>
+    </div>
+  </div>
+  <div class="es">
+    <h2>Librerías</h2>
+    <p>Las librerías oficiales XF llevan la taxonomía L&times;T y la nomenclatura canónica a código real, con un monorepo por tecnología &mdash; <code>lib-npm</code>, <code>lib-nuget</code>, <code>lib-pip</code> y <code>lib-maven</code> &mdash; publicados en <a href="https://github.com/xfarch">@xfarch</a> en GitHub.</p>
+    <div class="cta">
+      <a class="btn primary" href="libraries.html">Ver las librerías</a>
+      <a class="btn ghost" href="https://github.com/xfarch">Ver en GitHub</a>
+    </div>
   </div>
 </div></section>
 

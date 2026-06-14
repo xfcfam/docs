@@ -37,6 +37,7 @@
   .brand{font-weight:700;letter-spacing:.02em;color:var(--ink)}
   .brand span{color:var(--accent)}
   .bar-right{display:flex;align-items:center;gap:18px}
+  .nav{display:flex;gap:18px}
   .nav a{color:var(--ink);font-weight:600;font-size:15px}
   .nav a:hover{color:var(--accent-2);text-decoration:none}
   .lang{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
@@ -80,6 +81,7 @@
   <div class="bar-right">
     <nav class="nav">
       <a href="libraries.html"><span class="en">Libraries</span><span class="es">Librerías</span></a>
+      <a href="tools.html"><span class="en">Tools</span><span class="es">Herramientas</span></a>
     </nav>
     <div class="lang" role="group" aria-label="Language">
       <button id="b-en" class="on" onclick="setLang('en')">EN</button>
@@ -184,18 +186,37 @@
 <section><div class="wrap">
   <div class="en">
     <h2>Libraries</h2>
-    <p>Official XF libraries bring the L&times;T taxonomy and the canonical nomenclature into real code, with one technology-specific monorepo per ecosystem &mdash; <code>lib-npm</code>, <code>lib-nuget</code>, <code>lib-pip</code> and <code>lib-maven</code> &mdash; published under <a href="https://github.com/xfarch">@xfarch</a> on GitHub.</p>
+    <p>Official XF libraries bring the L&times;T taxonomy and the canonical nomenclature into real code, with one technology-specific monorepo per ecosystem &mdash; <code>lib-npm</code>, <code>lib-nuget</code>, <code>lib-pip</code> and <code>lib-maven</code> &mdash; published under <a href="https://github.com/xfcfam">@xfcfam</a> on GitHub.</p>
     <div class="cta">
       <a class="btn primary" href="libraries.html">Browse the libraries</a>
-      <a class="btn ghost" href="https://github.com/xfarch">View on GitHub</a>
+      <a class="btn ghost" href="https://github.com/xfcfam">View on GitHub</a>
     </div>
   </div>
   <div class="es">
     <h2>Librerías</h2>
-    <p>Las librerías oficiales XF llevan la taxonomía L&times;T y la nomenclatura canónica a código real, con un monorepo por tecnología &mdash; <code>lib-npm</code>, <code>lib-nuget</code>, <code>lib-pip</code> y <code>lib-maven</code> &mdash; publicados en <a href="https://github.com/xfarch">@xfarch</a> en GitHub.</p>
+    <p>Las librerías oficiales XF llevan la taxonomía L&times;T y la nomenclatura canónica a código real, con un monorepo por tecnología &mdash; <code>lib-npm</code>, <code>lib-nuget</code>, <code>lib-pip</code> y <code>lib-maven</code> &mdash; publicados en <a href="https://github.com/xfcfam">@xfcfam</a> en GitHub.</p>
     <div class="cta">
       <a class="btn primary" href="libraries.html">Ver las librerías</a>
-      <a class="btn ghost" href="https://github.com/xfarch">Ver en GitHub</a>
+      <a class="btn ghost" href="https://github.com/xfcfam">Ver en GitHub</a>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="en">
+    <h2>Tools</h2>
+    <p><code>xftools</code> is the official command-line validator for CFAM&nbsp;/&nbsp;XF. It classifies every component of an artifact into the L&times;T matrix, runs the normative rule catalog (71 rules across 9 groups, XF-CFAM-001:2026), and reports a single conformance level &Lambda;&nbsp;&isin;&nbsp;{0..4}. It is built as an XF artifact itself &mdash; it validates its own source. Published at <a href="https://github.com/xfcfam/tools">xfcfam/tools</a> on GitHub.</p>
+    <div class="cta">
+      <a class="btn primary" href="tools.html">Explore the tool</a>
+      <a class="btn ghost" href="https://github.com/xfcfam/tools">View on GitHub</a>
+    </div>
+  </div>
+  <div class="es">
+    <h2>Herramientas</h2>
+    <p><code>xftools</code> es el validador oficial de línea de comandos de CFAM&nbsp;/&nbsp;XF. Clasifica cada componente de un artefacto en la matriz L&times;T, ejecuta el catálogo normativo de reglas (71 reglas en 9 grupos, XF-CFAM-001:2026) y reporta un único nivel de conformidad &Lambda;&nbsp;&isin;&nbsp;{0..4}. Está construido como un artefacto XF en sí mismo &mdash; valida su propio código. Publicado en <a href="https://github.com/xfcfam/tools">xfcfam/tools</a> en GitHub.</p>
+    <div class="cta">
+      <a class="btn primary" href="tools.html">Explorar la herramienta</a>
+      <a class="btn ghost" href="https://github.com/xfcfam/tools">Ver en GitHub</a>
     </div>
   </div>
 </div></section>

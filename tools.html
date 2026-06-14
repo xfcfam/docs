@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>XF Libraries — CFAM / XF</title>
-<meta name="description" content="Official XF libraries: technology-specific monorepos (npm, NuGet, pip, Maven) that bring the CFAM L×T taxonomy into real code. Published under @xfcfam on GitHub.">
+<title>XF Tools — CFAM / XF</title>
+<meta name="description" content="xftools: the official command-line validator for the CFAM / XF model. Classifies every component into the L×T matrix, runs the 71-rule normative catalog, and reports a conformance level Λ ∈ {0..4}. Source at xfcfam/tools on GitHub.">
 
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="googlebot" content="index, follow">
 <meta name="bingbot" content="index, follow">
 
-<meta property="og:title" content="XF Libraries (CFAM / XF)">
-<meta property="og:description" content="Official XF libraries per technology — npm, NuGet, pip, Maven — published under @xfcfam on GitHub.">
+<meta property="og:title" content="XF Tools (CFAM / XF)">
+<meta property="og:description" content="xftools — the official CLI validator for the CFAM / XF model. Published at xfcfam/tools on GitHub.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://xfcfam.org/libraries.html">
+<meta property="og:url" content="https://xfcfam.org/tools.html">
 <style>
   :root{
     --ink:#13182b; --muted:#5b6478; --line:#e4e7ef; --bg:#ffffff;
@@ -42,17 +42,21 @@
   .nav{display:flex;gap:18px}
   .nav a{color:var(--ink);font-weight:600;font-size:15px}
   .nav a:hover{color:var(--accent-2);text-decoration:none}
+  .lang{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .lang button{border:0;background:transparent;color:var(--muted);padding:6px 12px;cursor:pointer;font-size:14px;font-weight:600}
+  .lang button.on{background:var(--accent);color:#fff}
   .hero{padding:46px 0 30px;border-bottom:1px solid var(--line)}
   .badge{display:inline-block;font-size:13px;font-weight:600;color:var(--accent);
     background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-bottom:18px}
   h1{font-size:2.0rem;line-height:1.15;margin:.1em 0 .35em}
   .tag{font-size:1.12rem;color:var(--muted);margin:0;max-width:42em}
+  .cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:22px}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;padding:11px 18px;font-weight:600;font-size:15px;border:1px solid var(--accent)}
+  .btn.primary{background:var(--accent);color:#fff}
+  .btn.primary:hover{text-decoration:none}
+  .btn.ghost{background:transparent;color:var(--accent-2)}
+  .btn.ghost:hover{text-decoration:none}
   section{padding:30px 0 44px}
-  .tabs{display:flex;flex-wrap:wrap;gap:6px;border-bottom:1px solid var(--line);margin:.2em 0 18px}
-  .tabs button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:15px;
-    padding:10px 16px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
-  .tabs button:hover{color:var(--ink)}
-  .tabs button.on{color:var(--accent-2);border-bottom-color:var(--accent)}
   .readme-meta{font-size:13.5px;color:var(--muted);margin:0 0 16px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
   .loading{color:var(--muted);padding:8px 0}
   .err{background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:16px;color:var(--muted)}
@@ -88,7 +92,7 @@
   <div class="bar-right">
     <nav class="nav">
       <a href="index.html"><span class="en">Specification</span><span class="es">Especificación</span></a>
-      <a href="tools.html"><span class="en">Tools</span><span class="es">Herramientas</span></a>
+      <a href="libraries.html"><span class="en">Libraries</span><span class="es">Librerías</span></a>
     </nav>
     <div class="lang" role="group" aria-label="Language">
       <button id="b-en" class="on" onclick="setLang('en')">EN</button>
@@ -100,24 +104,31 @@
 <div class="hero"><div class="wrap">
   <div class="badge"><span class="en">Open source &middot; @xfcfam</span><span class="es">Código abierto &middot; @xfcfam</span></div>
   <div class="en">
-    <h1>XF Libraries</h1>
-    <p class="tag">Official XF libraries bring the L&times;T taxonomy and the canonical nomenclature into real code &mdash; one technology-specific monorepo per ecosystem. The documentation below is loaded live from each repository&rsquo;s README.</p>
+    <h1>XF Tools</h1>
+    <p class="tag"><code>xftools</code> is the official command-line validator for the CFAM&nbsp;/&nbsp;XF model: it classifies every component into the L&times;T matrix, runs the 71-rule normative catalog (XF-CFAM-001:2026), and reports a conformance level &Lambda;&nbsp;&isin;&nbsp;{0..4}. It is built as an XF artifact itself &mdash; it validates its own source. The documentation below is loaded live from the repository&rsquo;s README.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/xfcfam/tools" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      <a class="btn ghost" href="https://www.npmjs.com/package/@xfcfam/tools" target="_blank" rel="noopener noreferrer">npm: @xfcfam/tools</a>
+    </div>
   </div>
   <div class="es">
-    <h1>Librerías XF</h1>
-    <p class="tag">Las librerías oficiales XF llevan la taxonomía L&times;T y la nomenclatura canónica a código real &mdash; un monorepo por tecnología. La documentación de abajo se carga en vivo desde el README de cada repositorio.</p>
+    <h1>Herramientas XF</h1>
+    <p class="tag"><code>xftools</code> es el validador oficial de línea de comandos del modelo CFAM&nbsp;/&nbsp;XF: clasifica cada componente en la matriz L&times;T, ejecuta el catálogo normativo de 71 reglas (XF-CFAM-001:2026) y reporta un nivel de conformidad &Lambda;&nbsp;&isin;&nbsp;{0..4}. Está construido como un artefacto XF en sí mismo &mdash; valida su propio código. La documentación de abajo se carga en vivo desde el README del repositorio.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/xfcfam/tools" target="_blank" rel="noopener noreferrer">Ver en GitHub</a>
+      <a class="btn ghost" href="https://www.npmjs.com/package/@xfcfam/tools" target="_blank" rel="noopener noreferrer">npm: @xfcfam/tools</a>
+    </div>
   </div>
 </div></div>
 
 <section><div class="wrap">
-  <div class="tabs" id="tabs" role="tablist"></div>
   <div class="readme-meta" id="meta"></div>
   <div class="md-body" id="readme" aria-live="polite"></div>
 </div></section>
 
 <footer><div class="wrap">
-  <span class="en">Content is fetched from the GitHub API and is cached in your browser for one hour. The libraries are published under <a href="https://github.com/xfcfam">@xfcfam</a>; the CFAM&nbsp;/&nbsp;XF specification lives at <a href="index.html">xfcfam.org</a>.</span>
-  <span class="es">El contenido se obtiene de la API de GitHub y se almacena en caché en tu navegador durante una hora. Las librerías se publican en <a href="https://github.com/xfcfam">@xfcfam</a>; la especificación CFAM&nbsp;/&nbsp;XF está en <a href="index.html">xfcfam.org</a>.</span>
+  <span class="en">Content is fetched from the GitHub API and is cached in your browser for one hour. The tool is published at <a href="https://github.com/xfcfam/tools">xfcfam/tools</a>; the CFAM&nbsp;/&nbsp;XF specification lives at <a href="index.html">xfcfam.org</a>.</span>
+  <span class="es">El contenido se obtiene de la API de GitHub y se almacena en caché en tu navegador durante una hora. La herramienta se publica en <a href="https://github.com/xfcfam/tools">xfcfam/tools</a>; la especificación CFAM&nbsp;/&nbsp;XF está en <a href="index.html">xfcfam.org</a>.</span>
 </div></footer>
 
 <script>
@@ -131,17 +142,11 @@
     renderMeta();
   }
 
-  // ---- Library catalogue: one monorepo per technology ----
+  // ---- The toolkit lives in a single repository ----
   var ORG='xfcfam';
-  var LIBS=[
-    {id:'npm',   repo:'lib-npm',   label:'npm'},
-    {id:'nuget', repo:'lib-nuget', label:'NuGet'},
-    {id:'pip',   repo:'lib-pip',   label:'pip'},
-    {id:'maven', repo:'lib-maven', label:'Maven'}
-  ];
+  var REPO='tools';
   var TTL=60*60*1000;           // 1 hour
-  var rendered={};              // in-memory cache for this session
-  var current=LIBS[0];
+  var renderedHtml=null;        // in-memory cache for this session
 
   function t(en,es){ return document.body.className==='lang-es' ? es : en; }
 
@@ -184,33 +189,25 @@
 
   function renderMeta(){
     var meta=document.getElementById('meta');
-    if(!current){ meta.textContent=''; return; }
-    var repoUrl='https://github.com/'+ORG+'/'+current.repo;
-    meta.innerHTML='<span><strong>'+current.label+'</strong> &middot; '+
-      t('monorepo','monorepo')+' <code>'+ORG+'/'+current.repo+'</code></span>'+
+    var repoUrl='https://github.com/'+ORG+'/'+REPO;
+    meta.innerHTML='<span><strong>xftools</strong> &middot; '+
+      t('repository','repositorio')+' <code>'+ORG+'/'+REPO+'</code></span>'+
       '<a href="'+repoUrl+'" target="_blank" rel="noopener noreferrer">'+
       t('View on GitHub &rarr;','Ver en GitHub &rarr;')+'</a>';
   }
 
-  async function show(lib){
-    current=lib;
-    // Tab state
-    document.querySelectorAll('#tabs button').forEach(function(b){
-      b.classList.toggle('on', b.dataset.id===lib.id);
-      b.setAttribute('aria-selected', b.dataset.id===lib.id ? 'true':'false');
-    });
+  async function show(){
     renderMeta();
     var box=document.getElementById('readme');
-    if(rendered[lib.repo]){ box.innerHTML=rendered[lib.repo]; absolutize(box,lib.repo); return; }
+    if(renderedHtml){ box.innerHTML=renderedHtml; absolutize(box,REPO); return; }
     box.innerHTML='<p class="loading">'+t('Loading the README from GitHub&hellip;','Cargando el README desde GitHub&hellip;')+'</p>';
     try{
-      var html=await loadReadme(lib.repo);
-      if(current.repo!==lib.repo) return;          // a faster tab click won
-      rendered[lib.repo]=html;
+      var html=await loadReadme(REPO);
+      renderedHtml=html;
       box.innerHTML=html;
-      absolutize(box,lib.repo);
+      absolutize(box,REPO);
     }catch(e){
-      var repoUrl='https://github.com/'+ORG+'/'+lib.repo;
+      var repoUrl='https://github.com/'+ORG+'/'+REPO;
       box.innerHTML='<div class="err">'+
         t('Could not load the README right now (','No se ha podido cargar el README ahora mismo (')+
         (e&&e.message||'error')+'). '+
@@ -222,19 +219,11 @@
     }
   }
 
-  // ---- Build tabs ----
+  // ---- Boot ----
   (function(){
-    var tabs=document.getElementById('tabs');
-    LIBS.forEach(function(lib){
-      var b=document.createElement('button');
-      b.type='button'; b.textContent=lib.label; b.dataset.id=lib.id;
-      b.setAttribute('role','tab');
-      b.onclick=function(){ show(lib); };
-      tabs.appendChild(b);
-    });
     var l='en'; try{l=localStorage.getItem('xf_lang')||'en';}catch(e){}
     setLang(l);
-    show(LIBS[0]);
+    show();
   })();
 </script>
 </body>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XF Libraries — CFAM / XF</title>
+<meta name="description" content="Official XF libraries: technology-specific monorepos (npm, NuGet, pip, Maven) that bring the CFAM L×T taxonomy into real code. Published under @xfarch on GitHub.">
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
+
+<meta property="og:title" content="XF Libraries (CFAM / XF)">
+<meta property="og:description" content="Official XF libraries per technology — npm, NuGet, pip, Maven — published under @xfarch on GitHub.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://xfcfam.org/libraries.html">
+<style>
+  :root{
+    --ink:#13182b; --muted:#5b6478; --line:#e4e7ef; --bg:#ffffff;
+    --accent:#1f3a93; --accent-2:#2b4fd0; --soft:#f5f7fb; --code:#f0f2f8;
+    --max:880px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{--ink:#e8ebf5;--muted:#9aa3ba;--line:#2a3046;--bg:#0e1120;
+          --accent:#8aa6ff;--accent-2:#9db4ff;--soft:#161a2c;--code:#161a2c;}
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;font-size:17px}
+  a{color:var(--accent-2);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-weight:700;letter-spacing:.02em;color:var(--ink)}
+  .brand a{color:var(--ink)}
+  .brand a:hover{text-decoration:none}
+  .brand span{color:var(--accent)}
+  .bar-right{display:flex;align-items:center;gap:18px}
+  .nav a{color:var(--ink);font-weight:600;font-size:15px}
+  .nav a:hover{color:var(--accent-2);text-decoration:none}
+  .hero{padding:46px 0 30px;border-bottom:1px solid var(--line)}
+  .badge{display:inline-block;font-size:13px;font-weight:600;color:var(--accent);
+    background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:4px 12px;margin-bottom:18px}
+  h1{font-size:2.0rem;line-height:1.15;margin:.1em 0 .35em}
+  .tag{font-size:1.12rem;color:var(--muted);margin:0;max-width:42em}
+  section{padding:30px 0 44px}
+  .tabs{display:flex;flex-wrap:wrap;gap:6px;border-bottom:1px solid var(--line);margin:.2em 0 18px}
+  .tabs button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:15px;
+    padding:10px 16px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+  .tabs button:hover{color:var(--ink)}
+  .tabs button.on{color:var(--accent-2);border-bottom-color:var(--accent)}
+  .readme-meta{font-size:13.5px;color:var(--muted);margin:0 0 16px;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+  .loading{color:var(--muted);padding:8px 0}
+  .err{background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:16px;color:var(--muted)}
+  /* Rendered README (GitHub-sanitized HTML) */
+  .md-body{font-size:15.5px;line-height:1.65;overflow-wrap:break-word}
+  .md-body>*:first-child{margin-top:0}
+  .md-body h1,.md-body h2{border-bottom:1px solid var(--line);padding-bottom:.3em;margin:1.4em 0 .6em}
+  .md-body h1{font-size:1.6rem}
+  .md-body h2{font-size:1.3rem}
+  .md-body h3{font-size:1.1rem}
+  .md-body p{margin:.2em 0 1em}
+  .md-body ul,.md-body ol{padding-left:1.4em;margin:.2em 0 1em}
+  .md-body li{margin:.25em 0}
+  .md-body code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    background:var(--code);padding:1px 5px;border-radius:5px;font-size:.92em}
+  .md-body pre{background:var(--code);border:1px solid var(--line);border-radius:9px;
+    padding:14px 16px;overflow:auto;font-size:13.5px;line-height:1.5}
+  .md-body pre code{background:transparent;padding:0}
+  .md-body img{max-width:100%;height:auto}
+  .md-body table{border-collapse:collapse;width:100%;font-size:14.5px;margin:.4em 0 1em;display:block;overflow:auto}
+  .md-body table th,.md-body table td{border:1px solid var(--line);padding:7px 11px;text-align:left}
+  .md-body table thead th{background:var(--soft)}
+  .md-body blockquote{margin:.4em 0 1em;padding:.2em 1em;border-left:3px solid var(--line);color:var(--muted)}
+  .md-body hr{border:0;border-top:1px solid var(--line);margin:1.5em 0}
+  footer{padding:28px 0 48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+  body.lang-en .es{display:none}
+  body.lang-es .en{display:none}
+</style>
+</head>
+<body class="lang-en">
+<header><div class="wrap bar">
+  <div class="brand"><a href="index.html">CFAM<span>/</span>XF</a></div>
+  <div class="bar-right">
+    <nav class="nav">
+      <a href="index.html"><span class="en">Specification</span><span class="es">Especificación</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="b-en" class="on" onclick="setLang('en')">EN</button>
+      <button id="b-es" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <div class="badge"><span class="en">Open source &middot; @xfarch</span><span class="es">Código abierto &middot; @xfarch</span></div>
+  <div class="en">
+    <h1>XF Libraries</h1>
+    <p class="tag">Official XF libraries bring the L&times;T taxonomy and the canonical nomenclature into real code &mdash; one technology-specific monorepo per ecosystem. The documentation below is loaded live from each repository&rsquo;s README.</p>
+  </div>
+  <div class="es">
+    <h1>Librerías XF</h1>
+    <p class="tag">Las librerías oficiales XF llevan la taxonomía L&times;T y la nomenclatura canónica a código real &mdash; un monorepo por tecnología. La documentación de abajo se carga en vivo desde el README de cada repositorio.</p>
+  </div>
+</div></div>
+
+<section><div class="wrap">
+  <div class="tabs" id="tabs" role="tablist"></div>
+  <div class="readme-meta" id="meta"></div>
+  <div class="md-body" id="readme" aria-live="polite"></div>
+</div></section>
+
+<footer><div class="wrap">
+  <span class="en">Content is fetched from the GitHub API and is cached in your browser for one hour. The libraries are published under <a href="https://github.com/xfarch">@xfarch</a>; the CFAM&nbsp;/&nbsp;XF specification lives at <a href="index.html">xfcfam.org</a>.</span>
+  <span class="es">El contenido se obtiene de la API de GitHub y se almacena en caché en tu navegador durante una hora. Las librerías se publican en <a href="https://github.com/xfarch">@xfarch</a>; la especificación CFAM&nbsp;/&nbsp;XF está en <a href="index.html">xfcfam.org</a>.</span>
+</div></footer>
+
+<script>
+  // ---- Language toggle (shared behaviour with the home page) ----
+  function setLang(l){
+    document.body.className='lang-'+l;
+    document.documentElement.lang=l;
+    var en=document.getElementById('b-en'), es=document.getElementById('b-es');
+    if(en&&es){en.classList.toggle('on',l==='en');es.classList.toggle('on',l==='es');}
+    try{localStorage.setItem('xf_lang',l);}catch(e){}
+    renderMeta();
+  }
+
+  // ---- Library catalogue: one monorepo per technology ----
+  var ORG='xfarch';
+  var LIBS=[
+    {id:'npm',   repo:'lib-npm',   label:'npm'},
+    {id:'nuget', repo:'lib-nuget', label:'NuGet'},
+    {id:'pip',   repo:'lib-pip',   label:'pip'},
+    {id:'maven', repo:'lib-maven', label:'Maven'}
+  ];
+  var TTL=60*60*1000;           // 1 hour
+  var rendered={};              // in-memory cache for this session
+  var current=LIBS[0];
+
+  function t(en,es){ return document.body.className==='lang-es' ? es : en; }
+
+  // Fetch the README as GitHub-rendered, sanitized HTML, with localStorage caching.
+  async function loadReadme(repo){
+    var key='xf_readme_'+repo;
+    try{
+      var c=JSON.parse(localStorage.getItem(key)||'null');
+      if(c && (Date.now()-c.t)<TTL) return c.html;
+    }catch(e){}
+    var res=await fetch('https://api.github.com/repos/'+ORG+'/'+repo+'/readme',
+      {headers:{'Accept':'application/vnd.github.html'}});
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    var html=await res.text();
+    try{localStorage.setItem(key,JSON.stringify({t:Date.now(),html:html}));}catch(e){}
+    return html;
+  }
+
+  // Rewrite relative links/images in the README to absolute GitHub URLs.
+  function absolutize(container,repo){
+    var blob='https://github.com/'+ORG+'/'+repo+'/blob/HEAD/';
+    var raw='https://raw.githubusercontent.com/'+ORG+'/'+repo+'/HEAD/';
+    container.querySelectorAll('a[href]').forEach(function(a){
+      var h=a.getAttribute('href')||'';
+      if(/^#/.test(h)) return;                     // in-page anchor
+      if(!/^[a-z][a-z0-9+.-]*:\/\//i.test(h) && !/^(mailto:|tel:)/i.test(h)){
+        a.setAttribute('href', blob+h.replace(/^\.?\//,''));
+      }
+      if(/^https?:\/\//i.test(a.getAttribute('href'))){
+        a.setAttribute('target','_blank'); a.setAttribute('rel','noopener noreferrer');
+      }
+    });
+    container.querySelectorAll('img[src]').forEach(function(img){
+      var s=img.getAttribute('src')||'';
+      if(!/^[a-z][a-z0-9+.-]*:\/\//i.test(s) && !/^data:/i.test(s)){
+        img.setAttribute('src', raw+s.replace(/^\.?\//,''));
+      }
+    });
+  }
+
+  function renderMeta(){
+    var meta=document.getElementById('meta');
+    if(!current){ meta.textContent=''; return; }
+    var repoUrl='https://github.com/'+ORG+'/'+current.repo;
+    meta.innerHTML='<span><strong>'+current.label+'</strong> &middot; '+
+      t('monorepo','monorepo')+' <code>'+ORG+'/'+current.repo+'</code></span>'+
+      '<a href="'+repoUrl+'" target="_blank" rel="noopener noreferrer">'+
+      t('View on GitHub &rarr;','Ver en GitHub &rarr;')+'</a>';
+  }
+
+  async function show(lib){
+    current=lib;
+    // Tab state
+    document.querySelectorAll('#tabs button').forEach(function(b){
+      b.classList.toggle('on', b.dataset.id===lib.id);
+      b.setAttribute('aria-selected', b.dataset.id===lib.id ? 'true':'false');
+    });
+    renderMeta();
+    var box=document.getElementById('readme');
+    if(rendered[lib.repo]){ box.innerHTML=rendered[lib.repo]; absolutize(box,lib.repo); return; }
+    box.innerHTML='<p class="loading">'+t('Loading the README from GitHub&hellip;','Cargando el README desde GitHub&hellip;')+'</p>';
+    try{
+      var html=await loadReadme(lib.repo);
+      if(current.repo!==lib.repo) return;          // a faster tab click won
+      rendered[lib.repo]=html;
+      box.innerHTML=html;
+      absolutize(box,lib.repo);
+    }catch(e){
+      var repoUrl='https://github.com/'+ORG+'/'+lib.repo;
+      box.innerHTML='<div class="err">'+
+        t('Could not load the README right now (','No se ha podido cargar el README ahora mismo (')+
+        (e&&e.message||'error')+'). '+
+        t('You can read it directly on ','Puedes leerlo directamente en ')+
+        '<a href="'+repoUrl+'" target="_blank" rel="noopener noreferrer">'+repoUrl+'</a>.'+
+        '<br>'+t('Note: the GitHub API allows 60 requests per hour per IP for anonymous traffic.',
+                 'Nota: la API de GitHub permite 60 peticiones por hora por IP para tráfico anónimo.')+
+        '</div>';
+    }
+  }
+
+  // ---- Build tabs ----
+  (function(){
+    var tabs=document.getElementById('tabs');
+    LIBS.forEach(function(lib){
+      var b=document.createElement('button');
+      b.type='button'; b.textContent=lib.label; b.dataset.id=lib.id;
+      b.setAttribute('role','tab');
+      b.onclick=function(){ show(lib); };
+      tabs.appendChild(b);
+    });
+    var l='en'; try{l=localStorage.getItem('xf_lang')||'en';}catch(e){}
+    setLang(l);
+    show(LIBS[0]);
+  })();
+</script>
+</body>
+</html>
